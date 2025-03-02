@@ -1,138 +1,134 @@
-# tameronline-witter
+# **tameronline-chat_ollama**
 
-## Overview
+## 📝 **Overview**
+`tameronline-chat_ollama` is an AI-powered project built on **LangChain** and **Ollama LLM**, designed to provide an intelligent agent capable of handling user queries related to weather updates, stock prices, and general responses.
 
-`tameronline-witter` is a structured and automated project setup designed to facilitate the management of Python-based development environments across multiple operating systems (Windows, Linux, and macOS). The project integrates virtual environment activation, dependency management, and testing automation.
+## 🚀 **Features**
+- **AI-Powered Agent**: Utilizes LangChain to create an intelligent agent that processes queries.
+- **Multi-Tool Support**:
+  - `weather_tool`: Fetches weather data from the OpenWeather API.
+  - `stock_tool`: Retrieves stock prices using Yahoo Finance.
+  - `custom_tool`: Handles general queries not covered by other tools.
+- **Automated Virtual Environment Setup**: Supports **Windows**, **Linux**, and **macOS**.
+- **GitHub Actions Integration**: Ensures smooth operation through **CI/CD pipelines**.
 
-## 🖼 Screenshots
-![Agent Witter - Weather API](img/screenshot.png)
+---
 
-## Features
+## 🛠 **Installation & Setup**
 
-- **Cross-Platform Compatibility**: Includes scripts for Windows (`.bat`, `.ps1`), Linux, and macOS (`.sh`).
-- **Automated Environment Setup**: Detects Python installation, creates a virtual environment, and activates it.
-- **Dependency Management**: Installs necessary Python packages from `requirements.txt`.
-- **Testing Integration**: Contains test scripts to validate core functionalities.
-- **GitHub Actions CI/CD**: Automated tests executed on push and pull requests.
-
-## Installation
-
-### Prerequisites
-
+### **Prerequisites**
 - **Python 3.6+**
-- **Git** (for cloning the repository)
-- **VS Code** (optional for enhanced development experience)
+- **Git** (for repository cloning)
+- **VS Code** (optional)
 
-### Setup Instructions
-
-#### **Cloning the Repository**
-
+### **Setup Steps**
+#### 1️⃣ **Clone the Repository**
 ```bash
-# Using HTTPS
-git clone https://github.com/TamerOnLine/tameronline-witter.git
-
-# Using SSH
-git clone git@github.com:TamerOnLine/tameronline-witter.git
+git clone https://github.com/TamerOnLine/tameronline-chat_ollama.git
+cd tameronline-chat_ollama
 ```
 
-#### **Navigating to the Project Directory**
-
-```bash
-cd tameronline-witter
-```
-
-#### **Setting Up the Virtual Environment**
-
-##### **Windows (Command Prompt)**
-
+#### 2️⃣ **Set Up the Virtual Environment & Install Dependencies**
+##### 🔹 **Windows (Command Prompt)**
 ```cmd
 activate_project.bat
 ```
-
-##### **Windows (PowerShell)**
-
+##### 🔹 **Windows (PowerShell)**
 ```powershell
 .\activate_project.ps1
 ```
-
-##### **Linux/macOS**
-
+##### 🔹 **Linux/macOS**
 ```bash
 chmod +x activate_project.sh
 ./activate_project.sh
 ```
 
-#### **Installing Dependencies**
-
+#### 3️⃣ **Run the Application**
 ```bash
-pip install -r requirements.txt
+python src/main.py
 ```
 
-## File Structure
+---
 
+## 🏠 **Project Structure**
 ```
-tameronline-witter/
+tameronline-chat_ollama/
 ├── README.md                # Documentation
 ├── LICENSE                  # License file
 ├── activate_project.bat     # Windows CMD script
 ├── activate_project.ps1     # Windows PowerShell script
 ├── activate_project.sh      # Linux/macOS Bash script
-├── requirements.txt         # Python dependencies
-├── workspace.code-workspace # VS Code workspace configuration
-├── img/                     # Image assets
-│   ├── screenshot.png       # Screenshot of project structure
+├── requirements.txt         # Dependency list
 ├── src/                     # Source code
-│   ├── __init__.py
-│   ├── main.py              # Main application logic
-│   ├── runner.py            # Script runner
-├── tests/                   # Test scripts
-│   ├── __init__.py
-│   ├── test.py
-│   ├── test_key_witter.py   # API Key validation tests
-│   ├── test_ollama.py       # LLM model test script
-└── .github/workflows/       # CI/CD automation
-    └── main.yml             # GitHub Actions workflow
+│   ├── main.py              # Main application
+│   ├── agent/               # AI agent logic
+│   │   ├── __init__.py
+│   │   ├── agent.py         # Agent implementation
+│   ├── model/
+│   │   ├── __init__.py
+│   │   ├── ollama_model.py  # Ollama model integration
+│   ├── tools/               # Additional tools
+│   │   ├── custom_tool.py   # General response tool
+│   │   ├── stock_tool.py    # Stock price tool
+│   │   ├── weather_tool.py  # Weather data tool
+├── tests/                   # Unit tests
+│   ├── test_custom_tool.py
+│   ├── test_main.py
+│   ├── test_ollama_model.py
+│   ├── test_stock_tool.py
+│   ├── test_weather_tool.py
+└── .github/workflows/       # CI/CD Integration
+    ├── ci.yml
+    ├── main.yml
 ```
 
-## Usage
+---
 
-### **Running the Main Application**
-To start the application and interact with the weather agent:
+## 🛠 **Usage**
+### **1️⃣ Run the Main Application**
+After installing dependencies, you can start the app with:
 ```bash
 python src/main.py
 ```
+This allows users to ask about weather updates or stock prices.
 
-### **Executing a Script via `runner.py`**
-
+### **2️⃣ Run an Individual Script**
 ```bash
-python src/runner.py
+python src/agent/agent.py
 ```
 
-This will prompt you to select a script from the `src/` directory to execute.
-
-### **Running Tests**
-
-To run all test cases:
-
+### **3️⃣ Run Tests**
 ```bash
 pytest tests/
 ```
 
-## Troubleshooting
+---
 
-- **Python Not Found**: Ensure Python 3.6+ is installed and available in the system path.
-- **Virtual Environment Activation Issues**: Delete the `venv` directory and rerun the activation script.
-- **Permission Issues on macOS/Linux**: Run `chmod +x activate_project.sh` before executing the script.
+## ❓ **Troubleshooting**
+| Issue | Solution |
+|---------|---------|
+| Python not found | Ensure **Python 3.6+** is installed and added to the system path. |
+| Virtual environment activation failure | Delete the `venv` directory and rerun the activation script. |
+| Permission issues on macOS/Linux | Use `chmod +x activate_project.sh` before execution. |
 
-## Contribution
+---
 
-Feel free to submit pull requests or report issues on the [GitHub repository](https://github.com/TamerOnLine/tameronline-witter).
+## 🤝 **Contributing**
+- Feel free to submit **pull requests** or report **issues** on the [GitHub repository](https://github.com/TamerOnLine/tameronline-chat_ollama).
 
-## License
+---
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+## 📄 **License**
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for more details.
 
-## Additional Resources
+---
 
-For more details, visit the official repository: [GitHub Repository](https://github.com/TamerOnLine/tameronline-witter).
+## 🔗 **Additional Resources**
+- [GitHub Repository](https://github.com/TamerOnLine/tameronline-chat_ollama)
+- [LangChain Documentation](https://python.langchain.com)
+- [Ollama LLM](https://ollama.com)
+
+---
+
+🚀 Enjoy using this AI-powered agent! Have any improvements in mind? 😊
 
