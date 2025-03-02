@@ -2,9 +2,9 @@ import os
 import logging
 import requests
 from dotenv import load_dotenv
-from run_ollama import OllamaHandler
-from langchain.agents import initialize_agent, AgentType
+
 from langchain.tools import Tool
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -61,28 +61,4 @@ weather_tool = Tool(
     return_direct=True,
 )
 
-handler = OllamaHandler()
 
-# Create the intelligent agent
-agent = initialize_agent(
-    tools=[weather_tool],
-    llm=handler.llm,
-    agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-    verbose=True,
-    allowed_tools=["Use the Weather API"],
-    handle_parsing_errors=True,
-)
-
-LOGGER.info("Available tools: %s", [tool.name for tool in agent.tools])
-
-# Interactive session for weather queries
-while True:
-    city = input("Enter a city name (or type 'exit' to quit): ").strip()
-    
-    if city.lower() == "exit":
-        LOGGER.info("Exiting...")
-        print("Exiting...")
-        break
-    
-    response = agent.invoke(f"What is the weather like in {city}?")
-    print(response)
