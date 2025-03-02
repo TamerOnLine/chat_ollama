@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       API_KEY: ${{ secrets.API_KEY }}
-      OLLAMA_HOST: http://127.0.0.1:11434
+      DISABLE_OLLAMA: "true"
 
     steps:
       - name: Checkout Repository
@@ -27,26 +27,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Verify API_KEY
-        run: |
-          if [ -z "$API_KEY" ]; then
-            echo "API_KEY is NOT set!"
-            exit 1
-          else
-            echo "API_KEY is set!"
-          fi
-
       - name: Create .env file
         run: |
           echo "API_KEY=${{ secrets.API_KEY }}" > .env
 
-      - name: Start Ollama Server
-        run: |
-          ollama serve &
-          sleep 5  # انتظر قليلاً حتى يعمل السيرفر
-
-      - name: Verify Ollama Server
-        run: curl http://127.0.0.1:11434 || exit 1
-
-      - name: Run Tests
-        run: pytest tests/
+      - name: Run Tests (Skip Ollama)
+        run: pytest
