@@ -14,7 +14,7 @@
 
 ---
 
-## 🛠 **Installation & Setup**
+## 🔧 **Installation & Setup**
 
 ### **Prerequisites**
 - **Python 3.6+**
@@ -24,8 +24,8 @@
 ### **Setup Steps**
 #### 1️⃣ **Clone the Repository**
 ```bash
-git clone https://github.com/TamerOnLine/tameronline-chat_ollama.git
-cd tameronline-chat_ollama
+git clone https://github.com/TamerOnLine/chat_ollama.git
+cd chat_ollama
 ```
 
 #### 2️⃣ **Set Up the Virtual Environment & Install Dependencies**
@@ -50,9 +50,9 @@ python src/main.py
 
 ---
 
-## 🏠 **Project Structure**
+## 🏗 **Project Structure**
 ```
-tameronline-chat_ollama/
+chat_ollama/
 ├── README.md                # Documentation
 ├── LICENSE                  # License file
 ├── activate_project.bat     # Windows CMD script
@@ -114,7 +114,7 @@ pytest tests/
 ---
 
 ## 🤝 **Contributing**
-- Feel free to submit **pull requests** or report **issues** on the [GitHub repository](https://github.com/TamerOnLine/tameronline-chat_ollama).
+- Feel free to submit **pull requests** or report **issues** on the [GitHub repository](https://github.com/TamerOnLine/chat_ollama).
 
 ---
 
@@ -124,7 +124,7 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for m
 ---
 
 ## 🔗 **Additional Resources**
-- [GitHub Repository](https://github.com/TamerOnLine/tameronline-chat_ollama)
+- [GitHub Repository](https://github.com/TamerOnLine/chat_ollama)
 - [LangChain Documentation](https://python.langchain.com)
 - [Ollama LLM](https://ollama.com)
 
