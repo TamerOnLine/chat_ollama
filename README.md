@@ -114,7 +114,7 @@ pytest tests/
 ---
 
 ## 🤝 **Contributing**
-- Feel free to submit **pull requests** or report **issues** on the [GitHub repository](https://github.com/TamerOnLine).
+- Feel free to submit **pull requests** or report **issues** on the [GitHub repository](https://github.com/TamerOnLine/tameronline-chat_ollama).
 
 ---
 
